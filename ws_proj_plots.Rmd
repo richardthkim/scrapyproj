@@ -1,0 +1,226 @@
+---
+title: "wsproj"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+rm(list = ls())
+library(ggplot2)
+setwd("/Users/richardkim/")
+scf <- read.csv("scf.csv")
+scf <- as.data.frame(scf)
+```
+
+```{r}
+
+scf.100 <- scf[ which(scf$rank==100), ]
+# scf.50 <- scf[ which(scf$rank==50), ]
+# scf.25 <- scf[ which(scf$rank==25), ]
+# scf.10 <- scf[ which(scf$rank==10), ]
+# scf.5 <- scf[ which(scf$rank==5),]
+# scf.1 <- scf[ which(scf$rank==1),]
+```
+
+```{r}
+model.100 <- lm(coun_m~date_int,data=scf.100)
+summary(model.100)
+```
+
+
+```{r}
+ggplot(scf.100, aes(x=scf.100$date_int, y=scf.100$coun_m)) + geom_point(color = 'blue') +
+geom_smooth(color = 'red', method = "lm", se = FALSE)
+```
+
+```{r}
+# model.50 <- lm(coun_m~date_int,data=scf.50)
+# summary(model.50)
+# ggplot(scf.50, aes(x=scf.50$date_int, y=scf.50$coun_m)) + geom_point(color = 'blue') +
+# geom_smooth(color = 'red', method = "lm", se = FALSE)
+```
+
+```{r}
+model.100 <- lm(coun_m~date_int,data=scf.100)
+summary(model.100)
+# model.50 <- lm(coun_m~date_int,data=scf.50)
+# summary(model.50)
+# model.25 <- lm(coun_m~date_int,data=scf.25)
+# summary(model.25)
+# model.10 <- lm(coun_m~date_int,data=scf.10)
+# summary(model.10)
+# model.5 <- lm(coun_m~date_int,data=scf.5)
+# summary(model.5)
+# model.1 <- lm(coun_m~date_int,data=scf.1)
+# summary(model.1)
+```
+
+```{r}
+ggplot(scf.100, aes(x=scf.100$date_int, y=scf.100$coun_m)) + geom_point(color="#1DB954") + geom_smooth(color = 'red', method = "lm") +
+  labs(x = 'dates', y = 'Stream Count', title = '            Progression of Stream Counts Necessary to Reach Top 100') + scale_y_continuous(breaks=c(500000,750000,1000000,1250000,1500000), labels = c("500k","750k","1M","1.25M","1.5M")) +
+  scale_x_continuous(breaks=c(180,365,545,730,910,1095), labels = c("2017-06","2017-12","2018-06","2018-12","2019-06","2019-12"))
+# ggplot(scf.50, aes(x=scf.50$date_int, y=scf.50$coun_m)) + geom_point(color = 'blue') + geom_smooth(color = 'red', method = "lm", se = FALSE)
+# ggplot(scf.25, aes(x=scf.25$date_int, y=scf.25$coun_m)) + geom_point(color = 'blue') + geom_smooth(color = 'red', method = "lm", se = FALSE)
+# ggplot(scf.10, aes(x=scf.10$date_int, y=scf.10$coun_m)) + geom_point(color = 'blue') + geom_smooth(color = 'red', method = "lm", se = FALSE)
+# ggplot(scf.5, aes(x=scf.5$date_int, y=scf.5$coun_m)) + geom_point(color = 'blue') + geom_smooth(color = 'red', method = "lm", se = FALSE)
+# ggplot(scf.1, aes(x=scf.1$date_int, y=scf.1$coun_m)) + geom_point(color = 'blue') + geom_smooth(color = 'red', method = "lm", se = FALSE)
+
+ggplot(scf.100, aes(x=scf.100$date_int, y=scf.100$coun_m)) + geom_point(color="#1DB954") + geom_smooth(color = 'red', se = FALSE, data = scf.100, method = 'gam', formula = y ~ s(x, bs = "cs")) + 
+  labs(x = 'dates', y = 'Stream Count', title = '            Progression of Stream Counts Necessary to Reach Top 100') + scale_y_continuous(breaks=c(500000,750000,1000000,1250000,1500000), labels = c("500k","750k","1M","1.25M","1.5M")) + scale_x_continuous(breaks=c(180,365,545,730,910,1095), labels = c("2017-06","2017-12","2018-06","2018-12","2019-06","2019-12"))
+
+#formula = coun_m ~ date_int + sin(date_int)
+```
+
+Top 100 shows a consistent $R^2$ value of 55%, but as soon as we go to Top 50, $R^2$ value drops to 16.48%, Top 25 drops $R^2$ to 3%. 
+
+```{r}
+sc_num_of_arti_per_day <- read.csv("sc_num_of_arti_per_day.csv")
+sc_num_of_arti_per_day <- as.data.frame(sc_num_of_arti_per_day)
+```
+
+```{r}
+ggplot(sc_num_of_arti_per_day, aes(x = date_int, y = num_of_arti, color = 'red')) + geom_line()
+```
+```{r}
+bw <- 2
+
+ggplot(data=sc_num_of_arti_per_day, aes(sc_num_of_arti_per_day$num_of_arti)) + geom_histogram(binwidth = bw, fill = '#1DB954', color = '#428c48') + labs(x = 'number of artists in a given day', y = 'frequency', title = 'number of unique artists in a given day for past 3 years')
+
+ggplot(data=sc_num_of_arti_per_day, aes(sc_num_of_arti_per_day$num_of_arti)) + geom_histogram(binwidth = bw, fill = '#1DB954', color = '#428c48') + 
+  stat_function(fun = function(x)
+    dnorm(x, mean = mean(sc_num_of_arti_per_day$num_of_arti), sd = sd(sc_num_of_arti_per_day$num_of_arti)) * bw * 1091, color = 'red') +
+  labs(x = 'number of artists in a given day', y = 'frequency', title = 'number of unique artists in a given day for past 3 years')
+```
+Shows a good normal distribution. Little bit skewed to the right, but great fit.
+
+
+
+
+
+
+
+
+
+
+```{r}
+model.100test <- lm(coun_m~date_int+sin(date_int*(2*pi)/365),data=scf.100)
+
+summary(model.100test)
+#ggplot(scf.100, aes(x=scf.100$date_int, y=scf.100$coun_m)) + geom_point(color = 'blue') + geom_smooth(color = 'red', method = "lm", se = FALSE)
+```
+
+```{r}
+ggplot(scf, aes(x=arti)) + stat_count()
+#ggplot(scf, aes(x = scf$arti$Freq)) + geom_histogram(binwidth = 1)
+
+```
+
+```{r}
+scf_arti_count_ten <- read.csv("scf_arti_count_ten.csv")
+scf_arti_count_ten <- as.data.frame(scf_arti_count_ten)
+```
+
+```{r}
+scf_arti_count_ten
+```
+
+```{r}
+ggplot(data = scf_arti_count_ten, aes(x= arti, y = count)) + geom_bar(stat = 'identity' ) + coord_flip()
+```
+
+```{r}
+ggplot(scf_arti_count_ten, aes(x = reorder(arti, count), y = count)) + geom_bar(stat='identity') + coord_flip()
+```
+```{r}
+scf_arti_count_20 <- read.csv("scf_arti_count_20.csv")
+scf_arti_count_20 <- as.data.frame(scf_arti_count_20)
+scf_arti_count_20
+```
+```{r}
+ggplot(scf_arti_count_20, aes(x = reorder(arti, count))) +
+  geom_bar(aes(y=count),stat='identity') + 
+  geom_bar(aes(y=unique_songs),stat='identity') +
+  scale_y_continuous(sec.axis = sec_axis(~.*.005, name = "count")) +
+  coord_flip()
+
+```
+
+
+
+
+```{r}
+ggplot(scf_arti_count_20, aes(x = reorder(arti, count))) +
+  geom_bar(aes(y=count),stat='identity') + 
+  geom_bar(aes(y=unique_songs),stat='identity') +
+  scale_y_continuous(sec.axis = sec_axis(~.*.01, name = "count")) +
+  coord_flip()
+
+```
+
+```{r}
+scf_arti_count_20$unique_songs_20 = (scf_arti_count_20$unique_songs)*100
+scf_arti_count_20
+
+```
+
+```{r}
+library(tidyr)
+df2 <-gather(scf_arti_count_20, key = variable, value = 'count2', count, unique_songs_20)
+df2$count = scf_arti_count_20$count
+df2
+```
+
+```{r}
+#sorta got it going? just need to clean this up
+ggplot(df2, aes(x = reorder(arti, count), y = count2)) +
+  geom_bar(stat='identity', position = 'dodge', aes(fill=variable)) + 
+  scale_y_continuous(sec.axis = sec_axis(~.*.01, name = "number of unique songs by artist")) +
+  coord_flip()
+```
+```{r}
+scf_arti_count_20
+```
+
+
+```{r}
+ggplot(scf_arti_count_20, aes(x = reorder(arti, count))) +
+  geom_bar(aes(y=count),stat='identity', fill="#1DB954") + 
+  #geom_bar(aes(y=unique_songs),stat='identity') +
+  #scale_y_continuous(sec.axis = sec_axis(~.*.01, name = "count")) +
+  coord_flip() + 
+  geom_text(aes(y= count, label=paste(unique_songs, "")), vjust=0.4, hjust = -0.15, size=3.5, color = 'black') +
+  geom_text(aes(y= count, label=count), vjust = 0.4, hjust = 1.1, size = 3.5, color = 'black') + 
+  
+  labs(x = 'Artists', y = 'Chart Occupancy : Number of Songs', title = 'Most Popular Artists on Spotify Chart for Past Three Years')
+```
+
+```{r}
+avg_days_of_rank <- read.csv("avg_days_of_rank.csv")
+avg_days_of_rank <- as.data.frame(avg_days_of_rank)
+avg_days_of_rank
+```
+
+```{r}
+ggplot(data = avg_days_of_rank, aes(x=rank, y=average.days)) +
+  geom_line(color="#1DB954") +
+  scale_x_reverse() +
+  labs(x = 'Rank on Chart', y = 'Average Days on Chart', title = 'Average days given song stays on Top XX')
+
+```
+\usepackage{fontspec}
+$$\text{200 } \frac{\text{songs}}{\text{day}} \times \text{(365 } \frac{\text{days}}{\text{year}} \times \text{3 years} - \text{4 days missing} \text{)} = 218200 \text{ songs}$$
+
+
+
+
+
+
+
+
+
+

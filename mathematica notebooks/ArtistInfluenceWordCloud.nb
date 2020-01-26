@@ -1,0 +1,710 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     29530,        700]
+NotebookOptionsPosition[     28487,        674]
+NotebookOutlinePosition[     28823,        689]
+CellTagsIndexPosition[     28780,        686]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.789011130116843*^9, 3.789011134747099*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"57f36882-0ec4-4d2d-88d7-ff67831df049"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{"\"\<~/scf_arti_count.csv\>\"", ",", "\"\<Elements\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7890112596289167`*^9, 3.789011260898305*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"2efc4339-1b76-4603-a9be-5ae265183604"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Data\"\>", ",", "\<\"Dataset\"\>", ",", "\<\"Dimensions\"\>", 
+   ",", "\<\"Grid\"\>", ",", "\<\"MaxColumnCount\"\>", ",", "\<\"RawData\"\>",
+    ",", "\<\"RowCount\"\>", ",", "\<\"Summary\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.789011261413083*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"a01e682a-5fe3-4845-bfe8-0fa12ec83922"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"scf", "=", " ", 
+   RowBox[{"Import", "[", "\"\<~/scf_arti_count.csv\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.7890110663614597`*^9, 3.789011138267251*^9}, {
+   3.78901126566783*^9, 3.789011267941346*^9}, {3.7890115938332453`*^9, 
+   3.789011594002193*^9}, 3.789012108353084*^9},
+ CellLabel->"In[25]:=",ExpressionUUID->"bd1fcfe0-2dfd-4594-ad2f-4085a16520ae"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"WordCloud", "[", 
+  RowBox[{
+   RowBox[{"scf", "[", 
+    RowBox[{"[", 
+     RowBox[{
+      RowBox[{"2", ";;", 
+       RowBox[{"-", "1"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "4"}], "}"}]}], "]"}], "]"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "1000"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.789012244095852*^9, 3.789012255860564*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"6cfd4074-3720-42e9-9b4f-56b30dbf4957"],
+
+Cell[BoxData[
+ GraphicsBox[{InsetBox[
+    StyleBox["\<\"Ed Sheeran\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.1417004048582996],
+     FontColor->RGBColor[0.368417, 0.506779, 0.709798]], {0, 0}, Center, 
+    Automatic], InsetBox[
+    StyleBox["\<\"Post Malone\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.13742247741907884`],
+     FontColor->RGBColor[0.880722, 0.611041, 0.142051]], {-14.5, -53.5}, 
+    Center, Automatic], InsetBox[
+    StyleBox["\<\"XXXTENTACION\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.10218305013849789`],
+     FontColor->RGBColor[0.922526, 0.385626, 0.209179]], {-0.5, 51.5}, Center,
+     Automatic], InsetBox[
+    StyleBox["\<\"The Chainsmokers\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.08446530066105862],
+     FontColor->RGBColor[0.528488, 0.470624, 0.701351]], {-0.5, 91.5}, Center,
+     Automatic], InsetBox[
+    StyleBox["\<\"Ariana Grande\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.07059768587891802],
+     FontColor->RGBColor[0.363898, 0.618501, 0.782349]], {-0.5, -94.5}, 
+    Center, Automatic], InsetBox[
+    StyleBox["\<\"Imagine Dragons\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.06491160732428711],
+     FontColor->RGBColor[1, 0.75, 0]], {-0.5, -123.5}, Center, Automatic], 
+   InsetBox[
+    StyleBox["\<\"Billie Eilish\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.07774538964194935],
+     FontColor->RGBColor[0.772079, 0.431554, 0.102387]], {-0.5, 125.5}, 
+    Center, Automatic], InsetBox[
+    StyleBox["\<\"Drake\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.1026286675800834],
+     FontColor->RGBColor[0.560181, 0.691569, 0.194885]], {13.5, -159.5}, 
+    Center, Automatic], InsetBox[
+    StyleBox["\<\"Shawn Mendes\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.053200780959420296`],
+     FontColor->RGBColor[0.40082222609352647`, 0.5220066643438841, 0.85]], {-0.5, 154.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Kendrick Lamar\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.05202435091363458],
+     FontColor->RGBColor[
+      0.9728288904374106, 0.621644452187053, 0.07336199581899142]], {-0.5, 177.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Travis Scott\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.05569623863229906],
+     FontColor->RGBColor[0.915, 0.3325, 0.2125]], {-0.5, -191.5}, Center, 
+    Automatic], InsetBox[
+    StyleBox["\<\"Camila Cabello\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.04302287859360759],
+     FontColor->RGBColor[0.8996399512215667, 0.7463488834690629, 0.]], {-125.5, -152.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Calvin Harris\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.04813856682300907],
+     FontColor->RGBColor[0.28026441037696703`, 0.715, 0.4292089322474965]], {-0.5, 199.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Marshmello\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.04459145198798853],
+     FontColor->RGBColor[
+      0.5833680111493557, 0.4126186601628758, 0.8290799721266107]], {148.5, 119.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Khalid\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.06366387848784771],
+     FontColor->RGBColor[0.647624, 0.37816, 0.614037]], {156.5, -90.5}, 
+    Center, Automatic], InsetBox[
+    StyleBox["\<\"Daddy Yankee\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03813891143383056],
+     FontColor->RGBColor[0.7748409210981391, 0.358, 0.4444755060028629]], {-154.5, 123.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"The Weeknd\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.04282680691930997],
+     FontColor->RGBColor[
+      0.8439466852489265, 0.3467106629502147, 0.3309221912517893]], {137.5, -146.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Ozuna\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.05578536212061616],
+     FontColor->RGBColor[0.571589, 0.586483, 0.]], {-156.5, -88.5}, Center, 
+    Automatic], InsetBox[
+    StyleBox["\<\"Sam Smith\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.04181079915249504],
+     FontColor->RGBColor[
+      0.28240003484173815`, 0.6090799721266095, 0.7538800418100857]], {141.5, 140.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"J Balvin\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.05136483710008806],
+     FontColor->RGBColor[0.736782672705901, 0.358, 0.5030266573755369]], {-137.5, 143.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Juice WRLD\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.04002832938615306],
+     FontColor->RGBColor[
+      0.8857244243136628, 0.3764133635295058, 0.1393110607841571]], {136.5, -166.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"A Boogie Wit da Hoodie\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.026196363999339296`],
+     FontColor->RGBColor[
+      0.8781534541180211, 0.4921023027453475, 0.04333810870621905]], {-143.5, -169.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Martin Garrix\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03694465669038143],
+     FontColor->RGBColor[0.7678998606330495, 0.7317110956258943, 0.]], {144.5, 159.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Sebastian Yatra\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.031169454647433422`],
+     FontColor->RGBColor[
+      0.6536293927965667, 0.37163285420200276`, 0.6534265180085832]], {-147.5, 162.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Taylor Swift\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.036071246504873866`],
+     FontColor->RGBColor[
+      0.8878600487784333, 0.33792799024431336`, 0.2577332520359445]], {166.5, -112.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"5 Seconds of Summer\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.025697272464763544`],
+     FontColor->RGBColor[0.38354466123747527`, 0.5323732032575149, 0.85]], {-70.5, -208.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"James Arthur\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.034573971901146604`],
+     FontColor->RGBColor[0.7132613816472081, 0.358, 0.5392132590042952]], {126.5, -184.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Queen\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.046908662684233104`],
+     FontColor->RGBColor[
+      0.838355547812947, 0.44746667828057946`, 0.0208888695323676]], {-157.5, -112.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Maroon 5\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.04058089501371908],
+     FontColor->RGBColor[0.5407932311309059, 0.715, 0.09762679674248334]], {-118.5, -186.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Selena Gomez\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.030099972787628233`],
+     FontColor->RGBColor[0.428777913273419, 0.5052332520359486, 0.85]], {141.5, 175.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Clean Bandit\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.034413549622175826`],
+     FontColor->RGBColor[
+      0.8564488486273256, 0.42032672705901153`, 0.06612212156831418]], {118.5, 193.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Dua Lipa\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.039208393293635756`],
+     FontColor->RGBColor[
+      0.9874666782805795, 0.6948333914028977, 0.033839968642435214`]], {-131.5, 182.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Hailee Steinfeld\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02680240371989557],
+     FontColor->RGBColor[
+      0.19193353076984873`, 0.681453175384121, 0.6453202369238185]], {-117.5, 199.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"David Guetta\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02974347883435984],
+     FontColor->RGBColor[
+      0.8342400905885153, 0.4628267270590103, 0.0038160815296638794`]], {-165.5, -132.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Bad Bunny\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.033415366553024316`],
+     FontColor->RGBColor[0.5472001045252132, 0.43417993728487203`, 0.85]], {115.5, -202.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Lil Uzi Vert\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.034538322505819764`],
+     FontColor->RGBColor[0.37977756485605163`, 0.715, 0.3025558265468435]], {97.5, 214.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Twenty One Pilots\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.024663440000285197`],
+     FontColor->RGBColor[0.7277983389807635, 0.358, 0.5168487092603637]], {2.5, 218.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Bebe Rexha\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.030331693857252692`],
+     FontColor->RGBColor[0.6361597700445392, 0.7170733077827265, 0.]], {37.5, -215.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Luis Fonsi\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03498393994740526],
+     FontColor->RGBColor[
+      0.35558897405758294`, 0.5505288207539337, 0.8417067688690995]], {-108.5, 215.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Nicky Jam\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.032470657576863064`],
+     FontColor->RGBColor[
+      0.8168067340273636, 0.3521386531945273, 0.3761554432877274]], {-173.5, -203.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Bruno Mars\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.031828968460979955`],
+     FontColor->RGBColor[
+      0.23716678280579248`, 0.645266573755366, 0.699600139366951]], {183.5, 209.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Eminem\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03796066445719637],
+     FontColor->RGBColor[
+      0.16397784358994957`, 0.7038177251280403, 0.6117734123079395]], {-183.5, 213.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Jonas Blue\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03020692097360875],
+     FontColor->RGBColor[
+      0.9038177251280404, 0.3492734123079395, 0.18454431282010084`]], {197.5, -26.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Anuel AA\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03478786827310764],
+     FontColor->RGBColor[
+      0.9637822400302223, 0.5764112001511111, 0.0977879519184]], {-40.5, -224.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Maluma\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03701595548103512],
+     FontColor->RGBColor[
+      0.8613800418100862, 0.48092002787339083`, 0.02824203762907758]], {-201.5, 83.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Charlie Puth\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.029280036695110923`],
+     FontColor->RGBColor[
+      0.596786740995709, 0.404791067752503, 0.7955331475107271]], {121.5, -221.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Kodak Black\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.027194547068490806`],
+     FontColor->RGBColor[
+      0.7896667828057927, 0.3575666434388414, 0.4213886953236787]], {-117.5, -223.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Alan Walker\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.027551041021759204`],
+     FontColor->RGBColor[
+      0.9930578157165594, 0.7227890785827968, 0.01874389756528967]], {190.5, -128.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Migos\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.04177514975716821],
+     FontColor->RGBColor[
+      0.9324333565611593, 0.5282889043741062, 0.0921900209050434]], {199.5, -45.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Major Lazer\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.028941367439505948`],
+     FontColor->RGBColor[0.8493197142977551, 0.7407577460330839, 0.]], {165.5, 227.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Cardi B\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03698030608570828],
+     FontColor->RGBColor[
+      0.6184987019729621, 0.39212575718243875`, 0.7412532450675947]], {-203.5, 178.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Childish Gambino\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02165106609516725],
+     FontColor->RGBColor[
+      0.9603267270590103, 0.5591336352950514, 0.10711783694067224`]], {-175.5, 228.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Lady Gaga\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02796100906801786],
+     FontColor->RGBColor[
+      0.9492067688690977, 0.5394711792460651, 0.10728609198218791`]], {-199.5, -183.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"DJ Snake\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.029975199903984298`],
+     FontColor->RGBColor[
+      0.9784200278733908, 0.649600139366954, 0.058265924741844846`]], {202.5, 187.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Panic! At The Disco\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02129457214189885],
+     FontColor->RGBColor[0.529922539669161, 0.44454647619850335`, 0.85]], {26.5, 27.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"French Montana\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.023700906326460526`],
+     FontColor->RGBColor[
+      0.5750747800184488, 0.4174563783225715, 0.8498130499538777]], {199.5, 27.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"21 Savage\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02780058678904708],
+     FontColor->RGBColor[0.47929071933511125`, 0.715, 0.1759027208462221]], {209.5, 81.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Justin Bieber\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02587551944139774],
+     FontColor->RGBColor[
+      0.9046334610863751, 0.334573307782725, 0.22977756485604156`]], {-0.5, 232.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Rae Sremmurd\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.022560125676001658`],
+     FontColor->RGBColor[
+      0.9840111653093676, 0.677555826546838, 0.04316985366470745]], {35.5, -230.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Axwell /\\\\ Ingrosso\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.020242914979757085`],
+     FontColor->RGBColor[
+      0.9107287510704583, 0.33890687339431275`, 0.20182187767614543`]], {-43.5, -239.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Lauv\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.04150777929221691],
+     FontColor->RGBColor[
+      0.6753413537738198, 0.3589675436319385, 0.5991466155654507]], {204.5, 0.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Manuel Turizo\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02270272325730902],
+     FontColor->RGBColor[0.5788038738141875, 0.715, 0.049249615145579635`]], {208.5, -63.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Danny Ocean\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.023415711163845807`],
+     FontColor->RGBColor[
+      0.8335801463353031, 0.3487839707329394, 0.3481997561078282]], {74.5, 230.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Kygo\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03974313422353835],
+     FontColor->RGBColor[0.47401116530937026`, 0.47809330081437784`, 0.85]], {-204.5, 0.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"benny blanco\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02325528888487503],
+     FontColor->RGBColor[
+      0.922066817647527, 0.5213778784316846, 0.08286013588277422]], {209.5, 97.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Jason Derulo\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.022916619629270055`],
+     FontColor->RGBColor[
+      0.6670481226429111, 0.3638052617916352, 0.6198796933927223]], {-210.5, 98.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Paulo Londra\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.022025384746099066`],
+     FontColor->RGBColor[0.7989994773739094, 0.735166608597101, 0.]], {-73.5, 231.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"DJ Khaled\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.026035941720368518`],
+     FontColor->RGBColor[
+      0.6319174318193065, 0.38429816477207124`, 0.7077064204517338]], {-212.5, 16.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Young Thug\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.022185807025069844`],
+     FontColor->RGBColor[
+      0.8510135028964549, 0.47400900193096995`, 0.018912152606809424`]], {-214.5, 141.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Anne-Marie\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.022631424466655337`],
+     FontColor->RGBColor[
+      0.8926354502560807, 0.366046824615879, 0.15658862564020168`]], {106.5, -236.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Julia Michaels\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.020528110142371804`],
+     FontColor->RGBColor[
+      0.6453361616656581, 0.37647057236169945`, 0.6741595958358548]], {-118.5, -236.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Piso 21\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.029957375206320875`],
+     FontColor->RGBColor[0.7513196300394465, 0.358, 0.48066210763162087`]], {-215.5, 53.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Lewis Capaldi\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.020421161956391282`],
+     FontColor->RGBColor[0.6672593867853922, 0.7205288207539324, 0.]], {190.5, -199.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Liam Payne\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02129457214189885],
+     FontColor->RGBColor[
+      0.8633598745697435, 0.40996018814538476`, 0.08339968642435877]], {-216.5, 29.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Lil Nas X\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.025269479720841467`],
+     FontColor->RGBColor[
+      0.969373377466199, 0.6043668873309952, 0.08269188084126262]], {219.5, 40.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"6ix9ine\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.027943184370354437`],
+     FontColor->RGBColor[0.6897400905885174, 0.358, 0.5753998606330502]], {217.5, 54.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Becky G\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02598246762737826],
+     FontColor->RGBColor[0.7175796237092107, 0.7261199581899123, 0.]], {-220.5, -101.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Harry Styles\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.020938078188630457`],
+     FontColor->RGBColor[
+      0.8064401951137368, 0.3542119609772526, 0.39343300814377197`]], {208.5, -180.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Gucci Mane\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02084895470031336],
+     FontColor->RGBColor[
+      0.2198892179497479, 0.6590886256402017, 0.6788670615396974]], {-200.5, 193.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Katy Perry\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.022132332932079585`],
+     FontColor->RGBColor[
+      0.6102054708420535, 0.39696347534213544`, 0.7619863228948663]], {219.5, 135.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Halsey\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02774711269605682],
+     FontColor->RGBColor[0.5019668524892619, 0.46131988850644284`, 0.85]], {-221.5, -17.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Zedd\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03311234669274618],
+     FontColor->RGBColor[0.9810598048862722, 0.7553955338762525, 0.]], {-220.5, -35.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Future\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02778276209138366],
+     FontColor->RGBColor[
+      0.8745421494417032, 0.39318677583744527`, 0.11135537360425793`]], {-221.5, -50.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Avicii\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.03134770162406762],
+     FontColor->RGBColor[
+      0.9052934053395919, 0.510195603559728, 0.06776406480563275]], {-219.5, -66.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Lil Baby\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02455649181430468],
+     FontColor->RGBColor[0.31827505306025683`, 0.715, 0.3808317506505822]], {-221.5, -81.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"ZAYN\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.029796952927350098`],
+     FontColor->RGBColor[0.2187618985811806, 0.715, 0.5074848563512248]], {221.5, -78.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Bazzi\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02860269818390097],
+     FontColor->RGBColor[
+      0.8607200975568693, 0.34335598048862614`, 0.30296650407188447`]], {219.5, -93.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Rita Ora\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.022577950373665077`],
+     FontColor->RGBColor[0.4567336004533182, 0.4884598397280091, 0.85]], {-215.5, -117.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"G-Eazy\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02254230097833824],
+     FontColor->RGBColor[0.15725938678540247`, 0.715, 0.5857607804549424]], {219.5, -142.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Logic\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.027978833765681277`],
+     FontColor->RGBColor[
+      0.3103557220216354, 0.5867154223826917, 0.7874268664259625]], {224.5, 111.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"KAROL G\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.021098500467601238`],
+     FontColor->RGBColor[
+      0.9986489531525362, 0.7507447657626809, 0.0036478264881522893`]], {-221.5, 66.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Shakira\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.024110874372719183`],
+     FontColor->RGBColor[
+      0.845266573755366, 0.437100139366951, 0.03816643438841502]], {-221.5, -143.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"J. Cole\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02348700995449949],
+     FontColor->RGBColor[0.9307395679624266, 0.7498043964402695, 0.]], {215.5, 147.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Ava Max\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02165106609516725],
+     FontColor->RGBColor[
+      0.3383114092015346, 0.5643508726387724, 0.8209736910418415]], {92.5, -26.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"CNCO\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02150846851385989],
+     FontColor->RGBColor[0.4177882075393331, 0.715, 0.25417864494993975`]], {209.5, -162.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Oasis\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02165106609516725],
+     FontColor->RGBColor[0.7042770479220728, 0.358, 0.5530353108891188]], {111.5, 27.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Offset\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02084895470031336],
+     FontColor->RGBColor[
+      0.8949268664259606, 0.5032845776173072, 0.05843417978336459]], {229.5, -106.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Tyga\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.021793663676474607`],
+     FontColor->RGBColor[
+      0.8774935098648088, 0.34000129802703827`, 0.2750108168919853]], {-172.5, -61.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"BTS\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02254230097833824],
+     FontColor->RGBColor[0.7658565873730018, 0.358, 0.4582975578876895]], {-58.5, -51.5},
+     Center, Automatic], InsetBox[
+    StyleBox["\<\"Sia\"\>",
+     StripOnInput->False,
+     FontSize->Scaled[0.02329093828020187],
+     FontColor->RGBColor[
+      0.26512246998569167`, 0.6229020240114467, 0.73314696398283]], {-56.5, -29.5},
+     Center, Automatic]},
+  DefaultBaseStyle->{"Graphics", FontFamily -> "Helvetica"},
+  ImageSize->1000,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic},
+  PlotRange->{{-247., 247.}, {-247., 241.}}]], "Output",
+ CellChangeTimes->{
+  3.78901218392304*^9, {3.7890122475664463`*^9, 3.789012259426611*^9}},
+ CellLabel->"Out[33]=",ExpressionUUID->"afa95232-3533-4f4c-87dd-f7c81d0dbbe9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<ArtistInfluence.png\>\"", ",", 
+   RowBox[{"WordCloud", "[", 
+    RowBox[{
+     RowBox[{"scf", "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"2", ";;", 
+         RowBox[{"-", "1"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", "4"}], "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "2000"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.789011459453238*^9, 3.789011461167633*^9}, {
+  3.7890116059538107`*^9, 3.789011608622699*^9}, {3.7890116400056458`*^9, 
+  3.7890116454784603`*^9}, {3.789011676447027*^9, 3.789011680615136*^9}, {
+  3.7890118848008842`*^9, 3.7890118864216413`*^9}, {3.789011932947888*^9, 
+  3.789011961206196*^9}, {3.78901202940803*^9, 3.789012057492793*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"685c0ec7-33dc-44fd-b5f7-2afdc0cd073f"],
+
+Cell[BoxData["\<\"ArtistInfluence.png\"\>"], "Output",
+ CellChangeTimes->{{3.789011459976096*^9, 3.7890114615086737`*^9}, 
+   3.789011608980962*^9, 3.789011646015482*^9, {3.7890116846094837`*^9, 
+   3.789011700090034*^9}, 3.789011889843645*^9, {3.789011940631159*^9, 
+   3.789011965210885*^9}, {3.789012035352311*^9, 3.789012063281796*^9}},
+ CellLabel->"Out[24]=",ExpressionUUID->"2aacbd2b-81ee-4596-a9f9-28dc27d6b05d"]
+}, Open  ]]
+},
+WindowSize->{1347, 740},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 220, 3, 30, "Input",ExpressionUUID->"57f36882-0ec4-4d2d-88d7-ff67831df049"],
+Cell[CellGroupData[{
+Cell[803, 27, 273, 5, 30, "Input",ExpressionUUID->"2efc4339-1b76-4603-a9be-5ae265183604"],
+Cell[1079, 34, 378, 6, 34, "Output",ExpressionUUID->"a01e682a-5fe3-4845-bfe8-0fa12ec83922"]
+}, Open  ]],
+Cell[1472, 43, 408, 8, 30, "Input",ExpressionUUID->"bd1fcfe0-2dfd-4594-ad2f-4085a16520ae"],
+Cell[CellGroupData[{
+Cell[1905, 55, 459, 12, 30, "Input",ExpressionUUID->"6cfd4074-3720-42e9-9b4f-56b30dbf4957"],
+Cell[2367, 69, 24788, 572, 1005, "Output",ExpressionUUID->"afa95232-3533-4f4c-87dd-f7c81d0dbbe9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27192, 646, 857, 18, 30, "Input",ExpressionUUID->"685c0ec7-33dc-44fd-b5f7-2afdc0cd073f"],
+Cell[28052, 666, 419, 5, 34, "Output",ExpressionUUID->"2aacbd2b-81ee-4596-a9f9-28dc27d6b05d"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
